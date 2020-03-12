@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+
+<!--      holiday List View -->
+       <record id="holiday_list" model="ir.ui.view">
+            <field name="name">Public Holiday List</field>
+            <field name="model">public_holiday.public_holiday</field>
+            <field name="arch" type="xml">
+                <tree string="holiday List">
+                  <field name="name"/>
+                  <field name="start"/>
+                  <field name="end"/>
+                  <field name="total"/>
+                </tree>
+            </field>
+        </record>
+
+
+  <!--      holiday List View -->
+       <record id="holiday_form" model="ir.ui.view">
+            <field name="name">public holiday form List</field>
+            <field name="model">public_holiday.public_holiday</field>
+            <field name="arch" type="xml">
+                <form string="holiday form">
+                 <group>
+                    <field name="name"/>
+                  <field name="start"/>
+                  <field name="end"/>
+                  <field name="total"/>
+                 </group>
+                </form>
+            </field>
+        </record>
+
+    <!--      holiday List View -->
+       <record id="holiday_calendar" model="ir.ui.view">
+            <field name="name">public holiday calender</field>
+            <field name="model">public_holiday.public_holiday</field>
+            <field name="arch" type="xml">
+              <calendar string="Public Holiday" color="id" date_start="start" date_stop="end" mode="month" quick_add="False" avatar_model="public_holiday.public_holiday">
+                    <field name="name"/>
+                    <field name="total"/>
+                </calendar>
+            </field>
+        </record>
+
+
+
+
+    <!-- actions opening views on models -->
+    <record model="ir.actions.act_window" id="public_holiday.action_window">
+      <field name="name">Public Holiday List</field>
+      <field name="res_model">public_holiday.public_holiday</field>
+      <field name="view_mode">calendar,tree,form</field>
+    </record>
+
+
+
+    <!-- Top menu item -->
+    <menuitem sequence="20"  name="Public Holiday" id="public_holiday.menu_root" parent="hr_holidays.menu_hr_holidays_root" action="public_holiday.action_window"/>
+    <!-- menu categories -->
+
+</odoo>
