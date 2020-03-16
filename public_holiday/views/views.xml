@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
 
-
 <!--      holiday List View -->
        <record id="holiday_list" model="ir.ui.view">
             <field name="name">Public Holiday List</field>
             <field name="model">public_holiday.public_holiday</field>
             <field name="arch" type="xml">
                 <tree string="holiday List">
-                  <field name="name"/>
-                  <field name="start"/>
-                  <field name="end"/>
+                  <field name="holiday_name"/>
+                  <field name="date_from"/>
+                  <field name="date_to"/>
                   <field name="total"/>
                 </tree>
             </field>
         </record>
 
 
-  <!--      holiday List View -->
+  <!--      holiday form View -->
        <record id="holiday_form" model="ir.ui.view">
             <field name="name">public holiday form List</field>
             <field name="model">public_holiday.public_holiday</field>
             <field name="arch" type="xml">
                 <form string="holiday form">
                  <group>
-                    <field name="name"/>
-                  <field name="start"/>
-                  <field name="end"/>
+                    <field name="holiday_name"/>
+                  <field name="date_from"/>
+                  <field name="date_to"/>
                   <field name="total"/>
+<!--                  <field name="employee_id" widget = "many2many_tags"/>-->
                  </group>
                 </form>
             </field>
@@ -38,8 +38,8 @@
             <field name="name">public holiday calender</field>
             <field name="model">public_holiday.public_holiday</field>
             <field name="arch" type="xml">
-              <calendar string="Public Holiday" color="id" date_start="start" date_stop="end" mode="month" quick_add="False" avatar_model="public_holiday.public_holiday">
-                    <field name="name"/>
+              <calendar string="Public Holiday" color="id" date_start="date_from" date_stop="date_to" mode="month" quick_add="False" avatar_model="public_holiday.public_holiday">
+                    <field name="holiday_name"/>
                     <field name="total"/>
                 </calendar>
             </field>
